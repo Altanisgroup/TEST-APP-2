@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>iBetcha | The Social Motivator</title>
+      <%= stylesheet_link_tag    "application" %>
+      <%= javascript_include_tag "application" %>
+      <%= javascript_include_tag "modernizr.custom.80028.js" %>
+      <%= csrf_meta_tags %>
+      
+  </head>
+  
+  <body>
+   <div id="note">
+    <p id=""><%= notice %></p>
+    <p id=""><%= alert %></p>
+    
+    <a id="close">[close]</a>
+  </div>
+  
+  <div id="user_nav">
+    <% if current_user %>
+      Hi <%= current_user.username %>, <%= Tagline.random_phrase %>
+      <%= link_to "Edit Profile", edit_user_path(current_user.id) %>
+      <%= link_to "Logout", :logout %>
+    <% else %>
+      <%= link_to "Register", new_user_path %> |
+      <%= link_to "Login", :login %>
+    <% end %>
+  </div>
+  
+  <div id="main_container">
+  
+  <%= yield %>
+  
+  </div>
+  
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+  <script>
+   $("#close").click(function() {
+     $("#note").hide();
+   });
+  </script>
+    
+  </body>
+</html>

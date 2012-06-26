@@ -1,0 +1,20 @@
+<%= form_for(@tagline) do |f| %>
+  <% if @tagline.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@tagline.errors.count, "error") %> prohibited this tagline from being saved:</h2>
+
+      <ul>
+      <% @tagline.errors.full_messages.each do |msg| %>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :phrase %><br />
+    <%= f.text_field :phrase %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

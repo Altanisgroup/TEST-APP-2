@@ -1,0 +1,23 @@
+<h1>Listing taglines</h1>
+
+<table>
+  <tr>
+    <th>Phrase</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @taglines.each do |tagline| %>
+  <tr>
+    <td><%= tagline.phrase %></td>
+    <td><%= link_to 'Show', tagline %></td>
+    <td><%= link_to 'Edit', edit_tagline_path(tagline) %></td>
+    <td><%= link_to 'Destroy', tagline, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Tagline', new_tagline_path %>
